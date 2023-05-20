@@ -1,21 +1,24 @@
-name: Deploy Meme
+name: Update Blog Links
 
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  deploy:
+  update-links:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Deploy Meme
-        run: deploy meme.png
-        
+      - name: Update Blog Links
+        run: |
+
+
+      - name: Commit and Push Changes
+        uses: divyanshutiwari09/blog-post-workflow@master
+        with:
+            max_post_count: 10
+            feed_list: "https://www.huffpost.com/"
