@@ -39,3 +39,4 @@ jobs:
         with:
     # Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}
          repo-token: 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
+         issue-message: hello
