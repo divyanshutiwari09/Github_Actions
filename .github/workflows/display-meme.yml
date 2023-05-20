@@ -13,6 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Pull in dev.to posts
-        uses: divyanshutiwari09/blog-post-workflow@v1
+        uses: divyanshutiwari09/workflow@v1
         with:
           feed_list: "https://www.huffpost.com/static/faq"
