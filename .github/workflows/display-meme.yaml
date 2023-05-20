@@ -1,26 +1,21 @@
-name: Display Meme
+name: Deploy Meme
 
 on:
-  push:
-  pull_request: 
-  
+  pull_request:
     branches:
-      - main
+      - master
+  push:
+    branches:
+      - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Display Meme
-      run: |
-        curl -s -H "Accept: application/json" https://meme-api.herokuapp.com/gimme | grep -oP '(?<="url":")[^"]+' | xargs -I{} curl -s -o meme.jpg {}
-
-    - name: Attach Meme
-      uses: actions/upload-artifact@v3
-      with:
-        name: meme
-        path: meme.png
+      - name: Deploy Meme
+        run: meme.png
+        
