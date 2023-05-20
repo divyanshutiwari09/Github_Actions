@@ -1,25 +1,18 @@
-name: Update Blog Links
-
+name: Latest blog post workflow
 on:
   push:
-    branches:
-      - main
+  workflow_dispatch: # Run workflow manually (without waiting for the cron to be called), through the GitHub Actions Workflow page directly
+permissions:
+  contents: write # To write the generated contents to the readme
 
 jobs:
-  update-links:
+  update-readme-with-blog:
+    name: Update this repo's README with latest blog posts
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Update Blog Links
-        run: |
-
-
-      - name: Commit and Push Changes
-        uses: divyanshutiwari09/blog-post-workflow@master
+      - name: Pull in dev.to posts
+        uses: divyanshutiwari09/blog-post-workflow@v1
         with:
-            max_post_count: 10
-            feed_list: "https://www.huffpost.com/"
-        
+          feed_list: "https://www.huffpost.com/static/faq"
