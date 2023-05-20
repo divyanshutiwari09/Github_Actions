@@ -22,3 +22,4 @@ jobs:
         with:
             max_post_count: 10
             feed_list: "https://www.huffpost.com/"
+        
