@@ -17,5 +17,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy Meme
-        run: meme.png
+        run: deploy meme.png
         
